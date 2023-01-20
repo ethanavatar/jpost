@@ -6,7 +6,7 @@ A command line tool to create new posts in a Jekyll project
 
 - [Usage](#usage)
 - [Installation](#installation)
-- [To-do](#todo)
+- [To Do](#to-do)
 
 ## Usage
 
@@ -56,7 +56,7 @@ $ cd jpost
 $ cargo install --path .
 ```
 
-## To-do
+## To Do
 
 - [ ] Publish as a crate
 - [ ] Add support for custom post templates
