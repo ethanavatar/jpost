@@ -68,7 +68,7 @@ fn new_post(project_root_path: &PathBuf, post_title: &str) -> io::Result<String>
 #[derive(clap::Parser)]
 struct Args {
     /// Title of the post
-    #[clap(short, long, default_value = "New Post")]
+    #[clap(default_value = "New Post")]
     post_title: String,
 }
 
