@@ -25,6 +25,7 @@ impl Display for Post {
         if let Some(categories) = &self.categories {
             writeln!(f, "categories: {:?}", categories)?;
         }
+        writeln!(f, "published: false")?;
         writeln!(f, "---")?;
         Ok(())
     }
