@@ -6,6 +6,8 @@ use std::io;
 use std::path::PathBuf;
 
 use chrono::Datelike;
+use chrono::Timelike;
+use chrono::{NaiveDate, NaiveTime};
 use chrono;
 
 struct Post {
@@ -19,7 +21,7 @@ impl Display for Post {
         writeln!(f, "---")?;
         writeln!(f, "layout: post")?;
         writeln!(f, "title: \"{}\"", self.title)?;
-        writeln!(f, "date: {}", self.date)?;
+        //writeln!(f, "date: {}", self.date)?;
         if let Some(categories) = &self.categories {
             writeln!(f, "categories: {:?}", categories)?;
         }
@@ -30,9 +32,18 @@ impl Display for Post {
 
 fn new_date() -> String {
     let current_date = chrono::Utc::now().date_naive();
-    let year = current_date.year();
-    let month = current_date.month();
-    let day = current_date.day();
+    let year = current_date.year().to_string();
+    let mut month = current_date.month().to_string();
+    let mut day = current_date.day().to_string();
+
+    if month.parse::<u32>().unwrap() < 10 {
+        month = format!("0{}", month);
+    }
+
+    if day.parse::<u32>().unwrap() < 10 {
+        day = format!("0{}", day);
+    }
+
     format!("{}-{}-{}", year, month, day)
 }
 
